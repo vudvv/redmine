@@ -27,8 +27,11 @@ services:
       REDMINE_DB_USERNAME: redmine
       REDMINE_DB_PASSWORD: secret
       REDMINE_DB_PORT: 5432
+      # Enable CORS for API access
+      RAILS_ENV: production
     volumes:
       - redmine_files:/usr/src/redmine/files
+      - ./config/cors.rb:/usr/src/redmine/config/initializers/cors.rb
     restart: unless-stopped
 
   swagger-ui:
